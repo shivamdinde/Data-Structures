@@ -1,0 +1,79 @@
+package Queue;
+
+import java.util.Scanner;
+
+public class SlidingWindow_Queue {
+
+	int front,rear,MaxSize,queue[];
+		
+		void createQueue(int size) {
+			MaxSize=size;
+			front=0;
+			rear=-1;
+			queue = new int [MaxSize];
+		}
+		
+		void enqueue (int e) {
+			rear++;
+			queue[rear]=e;
+			System.out.println("Enqueued: "+e);
+		}
+		
+		int dequeue () {
+			int temp = queue[front];
+			front++;
+			return temp;
+		}
+		
+		boolean isFull()
+		{
+			if(rear==MaxSize-1)
+				return true;
+			else
+				return false;
+		}
+		
+		boolean isEmpty()
+		{
+			if(front>rear)
+				return true;
+			else
+				return false;
+		}
+		
+		void printQueue() 
+		{
+			System.out.println("Queue Has: ");
+			for(int i=front;i<=rear;i++) {
+				System.out.print(queue[i]+" - ");
+			}
+		}
+	
+	
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		Linear_Queue_Example obj = new Linear_Queue_Example();
+		System.out.println("Enter the size of Queue: ");
+		int size = in.nextInt();
+		
+		int choice;
+		obj.createQueue(size);
+		
+		do {
+			System.out.println("\n1.Enqueue\n2.Dequeue\n3.Print\n.0.Exit");
+			choice = in.nextInt();
+			
+			switch(choice) {
+				
+				
+			
+			}
+			
+			
+		}while(choice!=0);
+		
+
+	}
+
+}

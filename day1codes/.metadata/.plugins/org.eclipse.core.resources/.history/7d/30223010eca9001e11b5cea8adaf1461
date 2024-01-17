@@ -1,0 +1,106 @@
+package Queue;
+
+import java.util.Scanner;
+
+import Stack_Data.Stack_Example;
+
+public class Linear_Queue_Example {
+
+	int front,rear,MaxSize,queue[];
+	
+	void createQueue(int size) {
+		MaxSize=size;
+		front=0;
+		rear=-1;
+		queue = new int [MaxSize];
+	}
+	
+	void enqueue (int e) {
+		rear++;
+		queue[rear]=e;
+		System.out.println("Enqueued: "+e);
+	}
+	
+	int dequeue () {
+		int temp = queue[front];
+		front++;
+		return temp;
+	}
+	
+	boolean isFull()
+	{
+		if(rear==MaxSize-1)
+			return true;
+		else
+			return false;
+	}
+	
+	boolean isEmpty()
+	{
+		if(front>rear)
+			return true;
+		else
+			return false;
+	}
+	
+	void printQueue() 
+	{
+		System.out.println("Queue Has: ");
+		for(int i=front;i<=rear;i++) {
+			System.out.print(queue[i]+" - ");
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		Linear_Queue_Example obj = new Linear_Queue_Example();
+		System.out.println("Enter the size of Queue: ");
+		int size = in.nextInt();
+		
+		int choice;
+		obj.createQueue(size);
+		
+		do {
+			
+			System.out.println("\n1.Enqueue\n2.Dequeue\n3.Print\n.0.Exit");
+			choice = in.nextInt();
+			
+			switch(choice) {
+			case 1:
+				if (obj.isFull()!=true) {
+					System.out.println("Enter Element: ");
+					int e = in.nextInt();
+					obj.enqueue(e);
+				}
+				else
+					System.out.println("Queue Full");
+				break;
+				
+			case 2:
+				if (obj.isEmpty()!=true) {
+					System.out.println("Dequeue Element: "+obj.dequeue());
+				}
+				else
+					System.out.println("Queue Empty");
+				break;
+				
+			 case 3:
+	                if(obj.isEmpty()!=true)
+	                	obj.printQueue();
+	                else
+	                    System.out.print("Queue Empty");
+	                break;
+				
+			 case 0:
+                 System.out.print("Exiting code");
+                 break;
+			 default:
+                 System.out.print("Wrong input");
+                 break;
+			}
+			
+		}while(choice!=0);
+	}
+
+}

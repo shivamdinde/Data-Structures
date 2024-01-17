@@ -1,0 +1,64 @@
+package Algorithms;
+
+public class Sorting {
+
+	static void printArray(int a[])
+    {
+        for(int i=0;i<a.length;i++)
+          System.out.print(a[i]+",");
+    }
+	//-----------------------------------------------------------
+	static void BubbleSort(int a[ ])
+	{
+	  int i, j,t;
+	  for(i=0;i<a.length-1;i++)//paases
+	   {
+		  System.out.println("\nPass:"+(i+1));
+		  for(j=0;j<a.length-1;j++)//j stops at second last
+		  {
+			  if(a[j]>a[j+1])
+	         {
+				t=a[j];
+				a[j]=a[j+1];
+				a[j+1]=t;
+			 }
+		  }
+	   }
+	}
+	//-----------------------------------------------------------
+	static void BubbleSort_V2(int a[]) { //Optimized bubble sort
+		int i, j,t;
+		boolean flag = false;
+		  for(i=0;i<a.length-1;i++)//passes
+		   {
+			  System.out.println("\nPass of V2:"+(i+1));
+			  for(j=0;j<a.length-i-1;j++) //j stops at second last
+			  {
+				if(a[j]>a[j+1])
+				{
+					flag=true;
+					if(a[j]>a[j+1]) {
+						t=a[j];
+						a[j]=a[j+1];
+						a[j+1]=t;
+					}
+				}
+		      }
+			  if(!flag) //sorted to stop
+				  return;
+		   }
+	}
+	
+	public static void main(String[] args) {
+		
+		int a[]={11,66,22,99,33,88,77,44,55};
+	     System.out.println("Before Sort:");
+	     BubbleSorting.printArray(a);
+	     BubbleSorting.BubbleSort(a);
+	     BubbleSorting.BubbleSort_V2(a);
+	     System.out.println("\nAfter Sort:");
+	     BubbleSorting.printArray(a);
+
+	}
+
+}

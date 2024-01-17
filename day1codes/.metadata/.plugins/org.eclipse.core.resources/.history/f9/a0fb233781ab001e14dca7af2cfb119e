@@ -1,0 +1,11 @@
+package LinkedList;
+
+public class Doubly_Node {
+	int data;
+	Doubly_Node next;
+	
+	Doubly_Node(int data){
+		this.data =data;
+		this.next =null;
+	}
+}

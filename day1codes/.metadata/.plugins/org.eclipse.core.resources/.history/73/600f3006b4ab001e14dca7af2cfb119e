@@ -1,0 +1,50 @@
+package assign1;
+
+public class CRUD_Operations {
+
+	Enode root;
+	
+	void createList(){
+		root=null;
+	}
+	
+	void insert(int empId,String name,char gender,float salary) {
+		
+		Enode n = new Enode(empId, name, gender, salary, root);
+		if(root==null)
+			root=n;
+		else
+	      {
+	         Enode t=root;//1
+	         while(t.next!=null)//2
+	             t=t.next;
+	         t.next=n;//3
+	      }
+	     System.out.println("Inserted");
+	}
+	 void printList()
+	    {
+	       if(root==null)
+	          System.out.println("Empty List");
+	      else
+	      {
+	          Enode t=root;
+	          while(t!=null)
+	          {
+	              System.out.println(t.empId+","+t.name+","+t.gender+","+t.salary);
+	              t=t.next;
+	          }
+	      }
+	}
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

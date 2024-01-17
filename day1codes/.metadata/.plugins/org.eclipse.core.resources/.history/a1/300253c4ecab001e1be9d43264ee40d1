@@ -1,0 +1,19 @@
+package assign1;
+
+public class Enode {
+
+	int empId;
+	String name;
+	String gender;
+	float salary;
+	Enode next;
+	
+	Enode(int empId,String name,String gender,float salary,Enode next){
+		this.empId=empId;
+		this.name=name;
+		this.gender=gender;
+		this.salary=salary;
+		this.next =null;
+	}
+	
+}

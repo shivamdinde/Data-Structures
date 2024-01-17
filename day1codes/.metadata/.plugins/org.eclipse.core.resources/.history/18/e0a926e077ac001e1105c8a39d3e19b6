@@ -1,0 +1,13 @@
+package LinkedList;
+
+public class Doubly_Node {
+	public int data;
+	Doubly_Node right;
+	Doubly_Node left;
+	
+	Doubly_Node(int data){
+		this.data =data;
+		this.right =null;
+		this.left =null;
+	}
+}

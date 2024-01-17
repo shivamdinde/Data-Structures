@@ -1,0 +1,66 @@
+package Queue;
+
+public class Double_Ended_Queue_Example {
+
+	int queue[],end1,end2,MaxSize;
+	
+	void createQueue (int size) {
+		MaxSize=size;
+		queue= new int [MaxSize];
+		end1=MaxSize/2;
+		end2=end1-1;
+	}
+	
+	void enqueueLeft(int data) {
+		end1--;
+		queue[end1]=data;
+	}
+	
+    void enqueueRight(int data) {
+    	end2++;
+    	queue[end2]=data;
+	}
+    
+    int dequeueLeft() {
+		
+    	int temp = queue[end1];
+    	end1++;
+    	return temp;
+	}
+    
+    int dequeueRight() {
+		
+	}
+    
+    boolean isFullLeft() {
+    	if (end1==0)
+    		return true;
+    	else
+    		return false;
+    }
+    
+    boolean isFullRight() {
+    	if (end1==MaxSize-1)
+    		return true;
+    	else
+    		return false;
+    }
+    
+    boolean isEmpty() {
+    	if(end1==end2)
+    		return true;
+    	else
+    		return false;
+    }
+    
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

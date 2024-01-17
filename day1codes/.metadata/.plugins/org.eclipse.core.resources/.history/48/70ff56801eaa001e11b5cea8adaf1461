@@ -1,0 +1,10 @@
+package LinkedList;
+
+public class Linear_Linked_List_Example {
+
+	Node root;
+	
+	void createList() {
+		root=null; //Nullify root - assigning it null so we know when to use it.
+	}
+}

@@ -1,0 +1,63 @@
+package LinkedList;
+
+public class Linear_Linked_List_Example {
+
+	Node root;
+	
+	void createList() {
+		root=null; //Nullify root - assigning it null so we know when to use it.
+	}
+	
+	void insertLeft(int data)
+	{
+		Node n = new Node(data);
+		if(root==null)
+			root=n;
+		else {
+			n.next=root; //1100
+			root=n;  //root=800
+		}
+	}
+	void deleteLeft(int data)
+	{
+		Node t;  //a local variable
+		
+		if(root==null)
+			System.out.println("Empty List");
+		else {
+			t=root; //1: t=100
+			root = root.next; //2:
+			System.out.println("Deleted:"+t.data);
+		}
+	}
+	void insertRight(int data)
+	{
+		Node n = new Node(data);
+		if(root==null)
+			root=n;
+		else {
+			Node t= root; //1:
+			while(t.next!=null) //2:
+				t=t.next;
+			t.next=n; //3:
+		}
+	}
+	void deleteRight(int data)
+	{
+		Node t,t2;
+		t=t2=root; //1:
+		
+		while(t.next!=null) {     //2:
+			t2=t;
+			t=t.next;
+		}
+		if (t==root) //single node
+			root=null;
+		else
+			t2.next=null; //3:
+		System.out.println("Deleted: "+t.data);
+		
+	}
+	
+	
+}

@@ -1,0 +1,106 @@
+package LinkedList;
+
+import java.util.Scanner;
+
+import Queue.SlidingWindow_Queue;
+
+public class Dynamic_Queue_Example {
+
+	Node tos;
+	
+	void createQueue() {
+		tos=null;
+	}
+	void dequeue()
+	{
+		Node t;  //a local variable
+		
+		if(tos==null)
+			System.out.println("Empty List");
+		else {
+			t=tos; //1: t=100
+			tos = tos.next; //2:
+			System.out.println("Deleted:"+t.data);
+		}
+	}
+	void enqueue(int data)
+	{
+		Node n = new Node(data);
+		if(tos==null)
+			tos=n;
+		else {
+			Node t= tos; //1:
+			while(t.next!=null) //2:
+				t=t.next;
+			t.next=n; //3:
+		}
+	}
+	
+	void printList()
+	{
+		if(tos==null)
+	          System.out.println("Empty List");
+	      else
+	      {
+	          Node t=tos;
+	          while(t!=null)
+	          {
+	              System.out.print(t.data);
+	              t=t.next;
+	          }
+	      }
+	}
+	
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		Dynamic_Queue_Example obj = new Dynamic_Queue_Example();
+		
+		int choice;
+		obj.createList();
+		
+		do {
+			System.out.println("\n1.Insert Left\n2.Delete Left\n3.Insert Right\n4.Delete Right\n5.Print\n0.Exit");
+			choice = in.nextInt();
+			
+			switch(choice) {
+			
+			case 1: 
+				System.out.println("Insert Left node data: ");
+				int n1 = in.nextInt();
+				obj.insertLeft(n1);
+				break;
+			
+			case 2:
+				obj.deleteLeft();
+				System.out.println("Left data deleted");
+				break;
+			
+			case 3:
+				System.out.println("Insert Right node data: ");
+				int n2 = in.nextInt();
+				obj.insertRight(n2);
+				break;
+				
+			case 4:
+				obj.deleteRight();
+				System.out.println("Right data deleted");
+				break;
+			
+			case 5:
+				obj.printList();
+				break;
+				
+			case 0:
+                System.out.print("Exiting code");
+                break;
+			 default:
+                System.out.print("Wrong input");
+                break;
+			}
+			
+			
+		}while(choice!=0);
+		
+	}
+}

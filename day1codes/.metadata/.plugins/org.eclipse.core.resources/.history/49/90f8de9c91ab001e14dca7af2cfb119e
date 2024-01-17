@@ -1,0 +1,109 @@
+package LinkedList;
+
+import java.util.Scanner;
+
+import Queue.SlidingWindow_Queue;
+
+public class Dynamic_Stack_Example {
+
+	Node root;
+	
+	void createList() {
+		root=null;
+	}
+	
+	void push(int data)
+	{
+		Node n = new Node(data);
+		if(root==null)
+			root=n;
+		else {
+			n.next=root; //1100
+			root=n;  //root=800
+		}
+	}
+	void pop()
+	{
+		Node tos;  //a local variable
+		
+		if(root==null)
+			System.out.println("Empty List");
+		else {
+			tos=root; //1: t=100
+			root = root.next; //2:
+			System.out.println("Deleted:"+t.data);
+		}
+	}
+	void peek() {
+		if(root==null)
+	          System.out.println("Empty List");
+	      else
+	      {
+	          Node tos=root;
+	          while(tos!=null)
+	        	 tos=tos.next;
+
+              System.out.println(tos.data);
+
+	      }
+	}
+	
+	void printStack()
+	{
+		if(root==null)
+	          System.out.println("Empty List");
+	      else
+	      {
+	          Node tos=root;
+	          while(tos!=null)
+	          {
+	              System.out.println(tos.data);
+	              tos=tos.next;
+	          }
+	      }
+	}
+	
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		Dynamic_Stack_Example obj = new Dynamic_Stack_Example();
+		
+		int choice;
+		obj.createList();
+		
+		do {
+			System.out.println("\n1.Push\n2.Pop\n3.Peek\n4.Print Stack\n0.Exit");
+			choice = in.nextInt();
+			
+			switch(choice) {
+			
+			case 1: 
+				System.out.println("Push data: ");
+				int n1 = in.nextInt();
+				obj.push(n1);
+				break;
+			
+			case 2:
+				obj.pop();
+				System.out.println("Popped data");
+				break;
+			
+			case 3:
+				obj.peek();
+				break;
+			
+			case 4:
+				obj.printStack();
+			case 0:
+                System.out.print("Exiting code");
+                break;
+			 default:
+                System.out.print("Wrong input");
+                break;
+			}
+			
+			
+		}while(choice!=0);
+		
+	}
+}

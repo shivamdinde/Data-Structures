@@ -1,0 +1,19 @@
+package assign1;
+
+public class Employee {
+
+	int employee_id;
+	String name;
+	char gender;
+	float salary;
+	Employee next;
+	
+	Employee(int employee_id,String name,char gender,float salary,Employee next){
+		this.employee_id=employee_id;
+		this.name=name;
+		this.gender=gender;
+		this.salary=salary;
+		this.next =null;
+	}
+	
+}

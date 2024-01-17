@@ -1,0 +1,102 @@
+package assign1;
+
+import java.util.Scanner;
+
+import LinkedList.Linear_Linked_List_Example;
+
+public class CRUD_Operations {
+
+	Enode root;
+	Scanner in = new Scanner(System.in);
+	void createList(){
+		root=null;
+	}
+	
+	void insert() {
+		
+		System.out.println("Enter Employee Id: ");
+		int empId = in.nextInt();
+		System.out.println("Enter Employee Name: ");
+		String name = in.nextLine();
+		System.out.println("Enter Employee Gender");
+		String gender = in.nextLine();
+		System.out.println("Enter Employee Salary");
+		float salary = in.nextFloat();
+		
+		Enode n = new Enode(empId, name, gender, salary, root);
+		if(root==null)
+			root=n;
+		else
+	      {
+	         Enode t=root;//1
+	         while(t.next!=null)//2
+	             t=t.next;
+	         t.next=n;//3
+	      }
+	     System.out.println("Employee Inserted");
+	}
+	void update(Enode t)
+	 {
+	          System.out.println("\n1.Update Name\n2.Update Gender\n3.Update Salary:");
+	          int up=in.nextInt();
+	          if(up==1)
+	          {
+	                System.out.println("Old:"+t.name);
+	                System.out.println("\nEnter new:");
+	                t.name=in.next();
+	          }
+	          else if(up==2)
+	          {
+	                System.out.println("Old:"+t.gender);
+	                System.out.println("\nEnter new:");
+	                t.gender=in.next();
+	          }
+	          else if(up==3)
+	          {
+	                System.out.println("Old:"+t.salary);
+	                System.out.println("\nEnter new:");
+	                t.salary=in.nextFloat();
+	          }
+	                System.out.println("\nEmployee Updated.");
+	          }
+	 void printList()
+	    {
+	       if(root==null)
+	          System.out.println("Empty List");
+	      else
+	      {
+	          Enode t=root;
+	          while(t!=null)
+	          {
+	              System.out.println(t.empId+","+t.name+","+t.gender+","+t.salary);
+	              t=t.next;
+	          }
+	      }
+	}
+	 
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		CRUD_Operations obj = new CRUD_Operations();
+		
+		int choice;
+		obj.createList();
+		
+		do {
+			System.out.println("\n1.Insert Employee\n2.\n0.Exit");
+			choice = in.nextInt();
+			
+			switch(choice) {
+			
+			case 1:
+				obj.insert();
+			
+			case 2:
+				
+				
+			}
+			
+		}
+	}
+
+}

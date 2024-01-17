@@ -1,0 +1,29 @@
+package Algorithms;
+
+public class SelectionSort {
+
+	void selectionSort(int a[]) {
+		int i, j, min,pos;
+		for(i=0;i<a.length;i++) {
+			
+			min=a[i];
+			pos=i;
+			
+			for(j=i+1;j<a.length;j++) {
+				if(a[j]<min) {
+					min=a[j];
+					pos=j;
+				}	
+			}
+			a[i]=min;
+			a[pos]=a[i];
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+
+		
+	}
+
+}

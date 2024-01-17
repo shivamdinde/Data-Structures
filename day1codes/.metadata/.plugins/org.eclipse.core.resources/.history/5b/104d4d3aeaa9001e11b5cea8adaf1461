@@ -1,0 +1,45 @@
+package Queue;
+
+public class Linear_Queue_Example {
+
+	int front,rear,MaxSize,queue[];
+	
+	void createQueue(int size) {
+		MaxSize=size;
+		front=0;
+		rear=-1;
+		queue = new int [MaxSize];
+	}
+	
+	void enqueue (int e) {
+		rear++;
+		queue[rear]=e;
+		System.out.println("Enqueued: "+e);
+	}
+	
+	boolean isFull()
+	{
+		if(rear==MaxSize-1)
+			return true;
+		else
+			return false;
+	}
+	
+	int dequeue () {
+		int temp = queue[front];
+		front++;
+		return temp;
+	}
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

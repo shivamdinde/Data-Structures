@@ -1,0 +1,91 @@
+package Tree_Data;
+
+import LinkedList.Doubly_Node;
+
+public class Tree_Example {
+
+	Doubly_Node root;
+	void createTree() {
+		root=null;
+	}
+	
+	void insertData(Doubly_Node r,Doubly_Node n)
+	    {
+	        if(root==null)
+	            root=n;
+	        else
+	        {
+	            if(n.data<r.data)//left
+	            {
+	                if(r.left==null)
+	                    r.left=n;
+	                else
+	                    insertData(r.left,n);
+	            }
+	            else
+	            {
+	                if(r.right==null)
+	                    r.right=n;
+	                else
+	                    insertData(r.right,n);
+	            }
+	        }
+	    }
+	void inorder(Doubly_Node r)
+	{
+	    if(r!=null)
+	    {
+	       inorder(r.left);//l
+	       System.out.print(r.data+",");//p
+	       inorder(r.right);//r
+	    }
+	 }
+	
+	void preorder(Doubly_Node r)
+	{
+		if(r!=null)
+		{
+			System.out.print(r.data+",");//p
+			preorder(r.left);//l
+			preorder(r.right);//r
+		}
+	}
+	void postorder(Doubly_Node r)
+	{
+		if(r!=null)
+		{
+			postorder(r.left);//l
+			postorder(r.right);//r
+			System.out.print(r.data+",");//p
+		}
+	}
+	
+	int getHeight(Doubly_Node r) {
+		
+		if(r!=null)
+			return 0;
+		else {
+			int LeftHeight = get(r.left);
+			int RightHeight = get(r.right);
+			return Math.max(LeftHeight, RightHeight);
+		}
+	}
+	public static void main(String[] args) {
+
+        Tree_Example t=new Tree_Example();
+        Doubly_Node n1=new Doubly_Node(100);
+        t.insertData(t.root,n1);
+        Doubly_Node n2=new Doubly_Node(50);
+        t.insertData(t.root,n2);
+        Doubly_Node n3=new Doubly_Node(20);
+        t.insertData(t.root,n3);
+        System.out.println("Inorder: ");
+        t.inorder(t.root);
+        System.out.println("\n\nPreorder: ");
+        t.preorder(t.root);
+        System.out.println("\n\nPostorder: ");
+        t.postorder(t.root);
+        System.out.println("\n\nHeight is: "+t.getHeight(t.root));
+	}
+
+}

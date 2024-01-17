@@ -1,0 +1,46 @@
+package Tree_Data;
+
+import LinkedList.Doubly_Node;
+
+public class Tree_Example {
+
+	Doubly_Node root;
+	void createTree() {
+		root=null;
+	}
+	
+	 void insertData(Doubly_Node r,Doubly_Node n)
+	    {
+	        if(root==null)
+	            root=n;
+	        else
+	        {
+	            if(n.data<r.data)//left
+	            {
+	                if(r.left==null)
+	                    r.left=n;
+	                else
+	                    insertData(r.left,n);
+	            }
+	            else
+	            {
+	                if(r.right==null)
+	                    r.right=n;
+	                else
+	                    insertData(r.right,n);
+	            }
+	        }
+	    }
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

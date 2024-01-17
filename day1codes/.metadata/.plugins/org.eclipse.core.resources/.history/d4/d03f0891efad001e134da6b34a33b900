@@ -1,0 +1,47 @@
+package Algorithms;
+
+public class Searching {
+
+	int linearSearch(int a[], int key)
+	{
+		for (int i=0;i<a.length;i++) {
+			if(key==a[i])
+				return i; //found 
+		}
+		
+		return -1;// not found
+	}
+	static int binarySearch(int a[],int key) {
+		
+		int start=0;
+		int end=a.length-1;
+		int mid =(start+end)/2;
+		for (int i=0;i<a.length;i++) {
+			if(key==a[mid]) {
+				return mid;
+			}
+			else {
+				if(key<mid) {
+					end=mid-1;
+					return end;
+				}	
+				else {
+					end=mid+1;
+					return end;
+				}
+			}
+		}
+		return -1;
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	int a[]= {11,66,22,99,33,88,77,44,55};
+	int as[]= {11,22,33,44,55,66,77}
+	int key=66;
+	int re= binarySearch(as, key);	
+	}
+
+}

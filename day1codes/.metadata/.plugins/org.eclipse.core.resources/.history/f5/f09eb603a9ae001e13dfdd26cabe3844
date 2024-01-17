@@ -1,0 +1,46 @@
+package Algorithms;
+
+public class MergeSort {
+
+	static void mergeSort(int a[],int start,int end)
+	{
+	  if(start<end)
+	    {
+	      int mid=(start+end)/2;
+		  mergeSort(a,start,mid);
+		  mergeSort(a,mid+1,end);
+		  Merger(a,start,mid,end);
+	    }
+	 }
+	static void Merger(int a[],int start,int mid,int end)
+	{
+	  int i,j,temp[],tindex;
+	  temp=new int[a.length];
+	  i=start;
+	  j=mid+1;
+	  tindex=start;
+	  while(i<=mid && j<=end)
+	    {
+	      if(a[i]<a[j])
+	  		temp[tindex++]=a[i++];
+	      else
+			temp[tindex++]=a[ j++];
+	    }
+		while(i<=mid)//copy leftover
+			temp[tindex++]=a[i++];
+		while(j<=end)//copy leftover
+			temp[tindex++]=a[j++];
+		 for(i=start;i<=end;i++)//copy to a again
+			a[i]=temp[i];
+	}
+	public static void main(String[] args) {
+		int a[]= {8,1,3,6,2,5};
+		
+		MergeSort.mergeSort(a,0,a.length-1);
+		for(int i=0;i<a.length;i++) {
+			System.out.print(a[i]+", ");
+		}
+		
+	}
+
+}

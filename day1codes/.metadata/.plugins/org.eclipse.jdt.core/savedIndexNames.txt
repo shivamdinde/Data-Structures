@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+F:\SHIVAM 2\CDAC DATA\Data Structures\day1codes\.metadata\.plugins\org.eclipse.jdt.core
+3601885327.index
+2750348152.index
+1865797976.index
